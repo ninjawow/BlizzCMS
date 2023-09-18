@@ -35,7 +35,7 @@ $config['maintenance_mode'] = '0';
  *  Write the invitation of your discord channel.
  *
 */
-$config['discord_invitation'] = '';
+$config['discord_invitation'] = 'Ueg4xuk2';
 
 /**
  *
