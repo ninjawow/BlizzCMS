@@ -75,14 +75,14 @@
                       <h5 class="uk-h5 uk-text-bold uk-margin-small"><a href="<?= base_url('online'); ?>" class="uk-link-reset"><i class="fas fa-server"></i> <?= $this->lang->line('table_header_realm'); ?> <?= $this->wowrealm->getRealmName($charsMultiRealm->realmID); ?></a></h5>
                     </div>
                     <div class="uk-width-auto">
-                      <?php if ($this->wowrealm->RealmStatus($charsMultiRealm->realmID)): ?>
+                      <?php if ($this->wowrealm->RealmStatus($charsMultiRealm->realmID, $this->wowrealm->realmGetHostname($charsMultiRealm->realmID))): ?>
                         <div class="status-dot online" uk-tooltip="<?= $this->lang->line('online'); ?>"><span><span></span></span></div>
                       <?php else: ?>
                         <div class="status-dot offline" uk-tooltip="<?= $this->lang->line('offline'); ?>"><span><span></span></span></div>
                       <?php endif ?>
                     </div>
                   </div>
-                  <?php if ($this->wowrealm->RealmStatus($charsMultiRealm->realmID)): ?>
+                  <?php if ($this->wowrealm->RealmStatus($charsMultiRealm->realmID, $this->wowrealm->realmGetHostname($charsMultiRealm->realmID))): ?>
                   <div class="uk-grid uk-grid-collapse uk-margin-small" data-uk-grid>
                     <div class="uk-width-1-2">
                       <div class="uk-tile alliance-bar uk-text-center" uk-tooltip="<?= $this->lang->line('faction_alliance'); ?>">
@@ -106,18 +106,20 @@
             </div>
             <h5 class="uk-h5 uk-text-center uk-margin dotted-divider">
               <?php if ($this->wowgeneral->getExpansionAction() == 1): ?>
-              <i class="fas fa-gamepad"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
+              <i class="fas fa-gamepad"></i> set realmlist <?= $this->config->item('realmlist'); ?>
               <?php else: ?>
-              <i class="fas fa-gamepad"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"
+              <i class="fas fa-gamepad"></i> set portal "<?= $this->config->item('realmlist'); ?>"
               <?php endif ?>
             </h5>
             <?php endif ?>
+            <h4 class="uk-h4 uk-text-bold"><i class="fab fa-facebook-square fa-sm"></i> Facebook</h4>
+            <div class="uk-text-center uk-margin-small">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fninjawow335&tabs=timeline&width=300&height=200&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=false&appId" width="300" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
             <?php if ($this->wowmodule->getDiscordStatus() == '1' && $this->config->item('discord_type') == '1'): ?>
             <h4 class="uk-h4 uk-text-bold"><i class="fab fa-discord fa-sm"></i> <?= $this->lang->line('home_discord'); ?></h4>
             <div class="uk-text-center uk-margin-small">
-              <a target="_blank" class="discord-widget" href="https://discord.gg/<?= $this->config->item('discord_invitation'); ?>" title="Join us on Discord">
-                <img src="https://discord.com/api/guilds/<?= $discord_id ?>/widget.png?style=<?= $this->config->item('discord_style'); ?>">
-              </a>
+              <iframe src="https://discord.com/widget?id=1153378825904848966&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             </div>
             <?php endif ?>
             <?php if ($this->wowmodule->getDiscordStatus() == '1' && $this->config->item('discord_type') == '2'): ?>
